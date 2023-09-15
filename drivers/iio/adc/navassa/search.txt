@@ -1,0 +1,78 @@
+devices/adrv9001/private/include/adrv9001_init.h:6: * ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/private/include/adrv9001_arm_error_mapping.h:5:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/private/include/adrv9001_arm_macros.h:5:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/private/include/adrv9001_validators.h:5: * ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/private/include/adrv9001_reg_addr_macros.h:7:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/private/include/adrv9001_rx.h:6: * ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/private/include/adrv9001_arm.h:6:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/private/include/adrv9001_init_types.h:6: * ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/private/include/adrv9001_gpio.h:6:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/private/src/adrv9001_arm.c:6:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/private/src/adrv9001_init.c:5: * ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/private/src/adrv9001_rx.c:5: * ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/private/src/adrv9001_gpio.c:6:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/private/src/adrv9001_crc32.c:6:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/private/src/adrv9001_validators.c:5: * ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_ssi_types.h:5:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_rx_types.h:5:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_auxdac.h:5: * ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_bbdc_types.h:5:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_dpd_types.h:5: * ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_cals.h:6: * ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_auxdac_types.h:5: * ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_bbdc.h:5: * ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_stream_types.h:5: * ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_utilities.h:6: * ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_profileutil.h:5: * ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_rx.h:5: * ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_ssi.h:5: * ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_fh_types.h:5: * ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_radio_types.h:5: * ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_auxadc.h:5: * ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_types.h:5:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_orx_types.h:5:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_stream.h:5: *  ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_powermanagement_types.h:5: * ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_error.h:7:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_radio.h:5: *  ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_tx_types.h:5:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001.h:6:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_rx_gaincontrol.h:5: * ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_arm.h:5: * ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_rx_gaincontrol_types.h:5:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_spi_types.h:6: * ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_user.h:5: * ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_mcs.h:5:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_fh.h:5: * ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_tx.h:6:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_gpio.h:5: * ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_version.h:5: * ADRV9001 API version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_dpd.h:5: * ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_orx.h:5: * ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_gpio_types.h:5: * ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_spi.h:6: * ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_arm_types.h:5: * ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_mcs_types.h:5:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_auxadc_types.h:5: * ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/include/adi_adrv9001_powermanagement.h:5: * ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/src/adi_adrv9001_fh.c:5:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/src/adi_adrv9001_auxdac.c:6:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/src/adi_adrv9001_profileutil.c:5:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$ 
+devices/adrv9001/public/src/adi_adrv9001_rx.c:6:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/src/adi_adrv9001_auxadc.c:6:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/src/adi_adrv9001_bbdc.c:6:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/src/adi_adrv9001_utilities.c:6:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/src/adi_adrv9001_dpd.c:5:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/src/adi_adrv9001_cals.c:6:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/src/adi_adrv9001_radio.c:6:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/src/adi_adrv9001_rx_gaincontrol.c:6:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/src/adi_adrv9001_gpio.c:6:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/src/adi_adrv9001_ssi.c:6:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/src/adi_adrv9001_orx.c:6:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/src/adi_adrv9001_powermanagement.c:5: * ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/src/adi_adrv9001_arm.c:6:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/src/adi_adrv9001_stream.c:5:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/src/adi_adrv9001_spi.c:6:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/src/adi_adrv9001_mcs.c:5:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/src/adi_adrv9001.c:6:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
+devices/adrv9001/public/src/adi_adrv9001_tx.c:6:* ADRV9001 API Version: $ADI_ADRV9001_API_VERSION$
