@@ -27,9 +27,12 @@
 int32_t adi_adrv9001_HwOpen(adi_adrv9001_Device_t *device, adi_adrv9001_SpiSettings_t *spiSettings)
 {
     ADI_NULL_DEVICE_PTR_RETURN(device);
+
     ADI_EXPECT(adi_adrv9001_HwOpenNoReset, device, spiSettings);
+
     /* Toggle RESETB pin, Configure and Verify SPI */
     ADI_MSG_EXPECT("Failed to reset device and set SPI Config", adi_adrv9001_HwReset, device);
+
     ADI_API_RETURN(device);
 }
 
@@ -82,6 +85,7 @@ int32_t adi_adrv9001_HwReset(adi_adrv9001_Device_t *device)
     static const uint32_t RESETB_WAIT_US = 1000;
 
     ADI_ENTRY_EXPECT(device);
+
     /* toggle RESETB on device with matching spi chip select index */
     recoveryAction = adi_adrv9001_hal_resetbPin_set(device->common.devHalInfo, RESETB_LEVEL_LOW);
     if (recoveryAction != ADI_COMMON_ACT_NO_ACTION)
@@ -94,6 +98,7 @@ int32_t adi_adrv9001_HwReset(adi_adrv9001_Device_t *device)
                          "GPIO Reset error");
         ADI_ERROR_RETURN(device->common.error.newAction);
     }
+
     recoveryAction = adi_common_hal_Wait_us(&device->common, RESETB_WAIT_US);
 
     if (recoveryAction != ADI_COMMON_ACT_NO_ACTION)
@@ -106,6 +111,7 @@ int32_t adi_adrv9001_HwReset(adi_adrv9001_Device_t *device)
                          "Timer error");
         ADI_ERROR_RETURN(device->common.error.newAction);
     }
+
     recoveryAction = adi_adrv9001_hal_resetbPin_set(device->common.devHalInfo, RESETB_LEVEL_HIGH);
     if (recoveryAction != ADI_COMMON_ACT_NO_ACTION)
     {
@@ -117,8 +123,10 @@ int32_t adi_adrv9001_HwReset(adi_adrv9001_Device_t *device)
                          "GPIO Reset error");
         ADI_ERROR_RETURN(device->common.error.newAction);
     }
+
     /* Configure and Verify Spi */
     ADI_MSG_EXPECT("Failed to set SPI Config", adi_adrv9001_spi_Configure, device, &device->spiSettings);
+
     device->devStateInfo.devState = ADI_ADRV9001_STATE_POWERON_RESET;
 
     ADI_API_RETURN(device);
@@ -236,27 +244,10 @@ int32_t adi_adrv9001_spi_Configure(adi_adrv9001_Device_t *device, adi_adrv9001_S
 
     ADRV9001_SPIWRITEBYTE(device, "SPI_INTERFACE_CONFIG_A", ADRV9001_ADDR_SPI_INTERFACE_CONFIG_A, spiConfigA);
 
-/* FIXME - Start: Vivek - In Tokelau, ADRV9001_ADDR_DIGITAL_IO_CONTROL is find in YODA file;
- * In Navassa, this is missing. Need to check whether it is needed.
- * Commenting this code snippet and related variables/constants used in this function for now
-*/
-
-    //if (spi->cmosPadDrvStrength == ADI_ADRV9001_CMOSPAD_DRV_STRONG)
-    //{
-        //ioControl |= ADRV9001_IO_CONTROL_SPI_OUTS_DRV_SEL;
-    //}
-
-    /* Force PAD mode */
-    //ADRV9001_SPIWRITEBYTE(device, "DIGITAL_IO_CONTROL", ADRV9001_ADDR_DIGITAL_IO_CONTROL, ioControl);
-
-/* FIXME - End: Vivek - In Tokelau, ADRV9001_ADDR_DIGITAL_IO_CONTROL is find in YODA file;
- * In Navassa, this is missing. Need to check whether it is needed.
- * Commenting this code snippet and related variables/constants used in this function for now
-*/
-
 #if ADI_ADRV9001_PRE_MCS_BROADCAST_DISABLE > 0
     ADI_MSG_EXPECT("SPI Verify failed", adi_adrv9001_spi_Verify, device) ;
 #endif
+
     ADI_API_RETURN(device);
 }
 
@@ -331,7 +322,9 @@ int32_t adi_adrv9001_spi_Verify(adi_adrv9001_Device_t *device)
     static const uint8_t SCRATCH_PAD_3 = 0xA5; /* DATA 10100101 */
     static const uint8_t VENDOR_ID_0   = 0x56;
     static const uint8_t VENDOR_ID_1   = 0x04;
+
     ADI_ENTRY_EXPECT(device);
+
     /* Check SPI read - VENDOR_ID_0 */
     ADRV9001_SPIREADBYTE(device, "VENDOR_ID_0", ADRV9001_ADDR_VENDOR_ID_0, &spiReg);
 #if ADI_ADRV9001_SW_TEST > 0
@@ -340,6 +333,7 @@ int32_t adi_adrv9001_spi_Verify(adi_adrv9001_Device_t *device)
         spiReg = 0;
     }
 #endif
+
     if (spiReg != VENDOR_ID_0)
     {
         ADI_ERROR_REPORT(&device->common, ADI_COMMON_ERRSRC_API, ADI_COMMON_ERR_API_FAIL,
@@ -350,6 +344,7 @@ int32_t adi_adrv9001_spi_Verify(adi_adrv9001_Device_t *device)
     /* Check SPI read - VENDOR_ID_1 */
     spiReg = 0;
     ADRV9001_SPIREADBYTE(device, "VENDOR_ID_1", ADRV9001_ADDR_VENDOR_ID_1, &spiReg);
+
 #if ADI_ADRV9001_SW_TEST > 0
     if (device->devStateInfo.swTest == 2)
     {
@@ -367,7 +362,9 @@ int32_t adi_adrv9001_spi_Verify(adi_adrv9001_Device_t *device)
     /* Check SPI write - SCRATCHPAD : Data = 10110110 */
     spiReg = 0;
     ADRV9001_SPIWRITEBYTE(device, "SCRATCH_PAD", ADRV9001_ADDR_SCRATCH_PAD, SCRATCH_PAD_1);
+
     ADRV9001_SPIREADBYTE(device, "SCRATCH_PAD", ADRV9001_ADDR_SCRATCH_PAD, &spiReg);
+
 #if ADI_ADRV9001_SW_TEST > 0
     if (device->devStateInfo.swTest == 3)
     {
@@ -385,6 +382,7 @@ int32_t adi_adrv9001_spi_Verify(adi_adrv9001_Device_t *device)
     /* Check SPI write - SCRATCHPAD : Data = 01001001 */
     spiReg = 0;
     ADRV9001_SPIWRITEBYTE(device, "SCRATCH_PAD", ADRV9001_ADDR_SCRATCH_PAD, SCRATCH_PAD_2);
+
     ADRV9001_SPIREADBYTE(device, "SCRATCH_PAD", ADRV9001_ADDR_SCRATCH_PAD, &spiReg);
 
 #if ADI_ADRV9001_SW_TEST > 0
@@ -404,6 +402,7 @@ int32_t adi_adrv9001_spi_Verify(adi_adrv9001_Device_t *device)
     /* Check SPI read - ADRV9001_ADDR_SCRATCH_PAD_READ_ONLY_UPPER_ADDRESS_SPACE : Data = 10100101 */
     spiReg = 0;
     ADRV9001_SPIREADBYTE(device, "SCRATCH_PAD_READ_ONLY_UPPER_ADDR", ADRV9001_ADDR_SCRATCH_PAD_READ_ONLY_UPPER_ADDRESS_SPACE, &spiReg);
+
 #if ADI_ADRV9001_SW_TEST > 0
     if (device->devStateInfo.swTest == 5)
     {
