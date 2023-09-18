@@ -2995,10 +2995,9 @@ static int adrv9002_intf_tuning(struct adrv9002_rf_phy *phy)
 			continue;
 		}
 
-		ret = adrv9002_axi_intf_tune(phy, c->port == ADI_TX, c->idx, &clk_delay,
-					     &data_delay);
-		if (ret)
-			return ret;
+		/* Set driver default delay values */
+		clk_delay = 0;
+		data_delay = 4;
 
 		if (c->port == ADI_RX) {
 			dev_dbg(&phy->spi->dev, "RX: Got clk: %u, data: %u\n", clk_delay,
