@@ -140,14 +140,12 @@ int32_t adi_adrv9001_spi_Byte_Write(adi_adrv9001_Device_t *device, uint16_t addr
     uint16_t numTxBytes = 0;
     uint8_t txData[ADRV9001_SPI_BYTES] = { 0 };
 
-// sjk printk("adi_adrv9001_spi_Byte_Write: Entry");
-
     ADI_NULL_DEVICE_PTR_RETURN(device);
-// sjk printk("adi_adrv9001_spi_Byte_Write: 1");
+
     ADI_FUNCTION_ENTRY_VARIABLE_LOG(&device->common, "%s(0x%04X, 0x%02X)", addr, data);
-// sjk printk("adi_adrv9001_spi_Byte_Write: 2");
+
     ADI_EXPECT(adi_adrv9001_spi_DataPack, device, &txData[0], &numTxBytes, addr, 0xFF, data, ADRV9001_SPI_WRITE_POLARITY);
-// sjk printk("adi_adrv9001_spi_Byte_Write: 3");
+
     for (i = 0; i < ADI_ADRV9001_NUMBER_SPI_RETRY; i++)
     {
         halError = adi_hal_SpiWrite(device->common.devHalInfo, &txData[0], numTxBytes);
@@ -156,14 +154,12 @@ int32_t adi_adrv9001_spi_Byte_Write(adi_adrv9001_Device_t *device, uint16_t addr
             break;
         }
     }
-// sjk printk("adi_adrv9001_spi_Byte_Write: 4");
     ADI_ERROR_REPORT(&device->common,
                      ADI_COMMON_ERRSRC_DEVICEHAL,
                      (adi_common_ErrSources_e)halError,
                      ADI_COMMON_ACT_ERR_RESET_INTERFACE,
                      NULL,
                      "SPI write error");
-// sjk printk("adi_adrv9001_spi_Byte_Write: 5");
     ADI_API_RETURN(device);
 }
 

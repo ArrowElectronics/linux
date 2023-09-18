@@ -62,6 +62,7 @@ enum adrv9002_clocks {
 enum adrv9002_rx_ext_info {
 	RX_QEC_FIC,
 	RX_QEC_W_POLY,
+	ORX_QEC_W_POLY,
 	RX_AGC,
 	RX_TRACK_BBDC,
 	RX_HD2,
@@ -199,6 +200,11 @@ struct adrv9002_rf_phy {
 	u8				rx2tx2;
 	/* ssi type of the axi cores - cannot really change at runtime */
 	enum adi_adrv9001_SsiType	ssi_type;
+	/*
+	 * Tells if TX only profiles are valid. If not set, it means that TX1/TX2 SSI clocks are
+	 * derived from RX1/RX2 which means that TX cannot be enabled if RX is not...
+	 */
+	u8				tx_only;
 #ifdef CONFIG_DEBUG_FS
 	struct adi_adrv9001_SsiCalibrationCfg ssi_delays;
 #endif
@@ -219,10 +225,11 @@ int __adrv9002_dev_err(const struct adrv9002_rf_phy *phy, const char *function, 
 
 int adrv9002_register_axi_converter(struct adrv9002_rf_phy *phy);
 int adrv9002_axi_interface_set(struct adrv9002_rf_phy *phy, const u8 n_lanes,
-			       const bool cmos_ddr, const int channel);
+			       const bool cmos_ddr, const int channel, const bool tx);
 int adrv9002_axi_intf_tune(struct adrv9002_rf_phy *phy, const bool tx, const int chann,
 			   u8 *clk_delay, u8 *data_delay);
-void adrv9002_axi_interface_enable(struct adrv9002_rf_phy *phy, const int chan, const bool en);
+void adrv9002_axi_interface_enable(struct adrv9002_rf_phy *phy, const int chan, const bool tx,
+				   const bool en);
 int __maybe_unused adrv9002_axi_tx_test_pattern_cfg(struct adrv9002_rf_phy *phy, const int channel,
 						    const adi_adrv9001_SsiTestModeData_e data);
 int adrv9002_post_init(struct adrv9002_rf_phy *phy);
@@ -232,6 +239,7 @@ int adrv9002_check_tx_test_pattern(struct adrv9002_rf_phy *phy, const int chann)
 int adrv9002_intf_change_delay(struct adrv9002_rf_phy *phy, const int channel, u8 clk_delay,
 			       u8 data_delay, const bool tx);
 u32 adrv9002_axi_dds_rate_get(struct adrv9002_rf_phy *phy, const int chan);
+void adrv9002_axi_hdl_loopback(struct adrv9002_rf_phy *phy, int channel, bool enable);
 
 static inline void adrv9002_sync_gpio_toogle(const struct adrv9002_rf_phy *phy)
 {
